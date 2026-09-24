@@ -6,6 +6,7 @@ using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
+using ARGBRealityWordSuite.Documents;
 
 namespace ARGBRealityWordSuite
 {
@@ -13,10 +14,12 @@ namespace ARGBRealityWordSuite
     {
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            DocumentCollection.Initialize(Globals.ThisAddIn.Application);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            DocumentCollection.Dispose();
         }
 
         #region Код, автоматически созданный VSTO
